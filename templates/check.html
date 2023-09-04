@@ -7,7 +7,9 @@
         <tr>
             <th>Dish</th>
             <th>Count</th>
-            <th>Sum</th>
+            {% if check.type == "client" %}
+                <th>Sum</th>
+            {% endif %}
         </tr>
 	</thead>
 	<tbody>
@@ -15,10 +17,14 @@
             <tr>
                 <td>{{ dish.dish }}</td>
                 <td>{{ dish.count }}</td>
-                <td>{{ dish.sum }}$</td>
+                {% if check.type == "client" %}
+                    <td>{{ dish.sum }}$</td>
+                {% endif %}
             </tr>
         {% endfor %}
     </tbody>
     </table>
-    <h2>Check sum: {{ check.order_sum }}$</h2>
+    {% if check.type == "client" %}
+        <h2>Check sum: {{ check.order_sum }}$</h2>
+    {% endif %}
 </div>
