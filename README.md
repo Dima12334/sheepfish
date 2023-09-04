@@ -32,7 +32,7 @@ python manage.py createsuperuser
 ```
 celery --app config.celery.app worker -l info
 celery --app config.celery.app beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
-celery --broker=redis://127.0.0.1:6379/0 flower
+celery --broker=redis://localhost:6379/0 flower
 ```
 10. Run server:
 ```
