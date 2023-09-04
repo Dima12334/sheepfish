@@ -1,0 +1,24 @@
+<div style="border: 3px solid;">
+    <h1>Zhrachka TOP</h1>
+    <h2>Order number: {{ check.order_number }}</h2>
+    <hr>
+    <table>
+    <thead>
+        <tr>
+            <th>Dish</th>
+            <th>Count</th>
+            <th>Sum</th>
+        </tr>
+	</thead>
+	<tbody>
+        {% for dish in check.order_dishes %}
+            <tr>
+                <td>{{ dish.dish }}</td>
+                <td>{{ dish.count }}</td>
+                <td>{{ dish.sum }}$</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    <h2>Check sum: {{ check.order_sum }}$</h2>
+</div>

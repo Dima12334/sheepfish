@@ -1,0 +1,192 @@
+swagger: "2.0"
+info:
+  title: SheepFish API
+  version: 1.0.0
+
+host: localhost:8000
+basePath: /api/v1/
+
+schemes:
+  - http
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /printers:
+    get:
+      summary: Get all printers
+      tags:
+        - Printers
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Printers'
+    post:
+      summary: Create new printer
+      tags:
+        - Printers
+      parameters:
+        - in: body
+          name: printer
+          description: The printer to create
+          required: true
+          schema:
+            $ref: '#/definitions/PrinterCreate'
+      responses:
+        201:
+          description: CREATED
+          schema:
+            $ref: '#/definitions/Printer'
+
+  /printers/{pk}:
+    get:
+      summary: Get printer by id
+      tags:
+        - Printers
+      parameters:
+        - in: path
+          name: pk
+          type: integer
+          required: true
+          description: Numeric ID of the printer to get
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Printer'
+
+  /checks:
+    get:
+      summary: Get all checks
+      tags:
+        - Checks
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Checks'
+    post:
+      summary: Create new check
+      tags:
+        - Checks
+      parameters:
+        - in: body
+          name: check
+          description: The check to create
+          required: true
+          schema:
+            $ref: '#/definitions/CheckCreate'
+      responses:
+        201:
+          description: CREATED
+          schema:
+            $ref: '#/definitions/Check'
+
+  /checks/{pk}:
+    get:
+      summary: Get check by id
+      tags:
+        - Checks
+      parameters:
+        - in: path
+          name: pk
+          type: integer
+          required: true
+          description: Numeric ID of the check to get
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/Check'
+
+definitions:
+  Printer:
+    type: object
+    properties:
+      pk:
+        type: integer
+      name:
+        type: string
+        maxLength: 255
+      api_key:
+        type: string
+        maxLength: 35
+      check_type:
+        type: string
+        maxLength: 7
+        enum:
+          - client
+          - kitchen
+      point_id:
+        type: integer
+  PrinterCreate:
+    type: object
+    properties:
+      name:
+        type: string
+        maxLength: 255
+      api_key:
+        type: string
+        maxLength: 35
+      check_type:
+        type: string
+        maxLength: 7
+        enum:
+          - client
+          - kitchen
+      point_id:
+        type: integer
+  Printers:
+    type: array
+    items:
+      $ref: '#/definitions/Printer'
+  Check:
+    type: object
+    properties:
+      pk:
+        type: integer
+      type:
+        type: string
+        maxLength: 7
+        enum:
+          - client
+          - kitchen
+      status:
+        type: string
+        maxLength: 8
+        enum:
+          - new
+          - rendered
+          - printed
+      printer:
+        $ref: '#/definitions/Printer'
+      order:
+        type: object
+  CheckCreate:
+    type: object
+    properties:
+      type:
+        type: string
+        maxLength: 7
+        enum:
+          - client
+          - kitchen
+      status:
+        type: string
+        maxLength: 8
+        enum:
+          - new
+          - rendered
+          - printed
+      printer:
+        $ref: '#/definitions/Printer'
+      order:
+        type: object
+  Checks:
+    type: array
+    items:
+      $ref: '#/definitions/Check'

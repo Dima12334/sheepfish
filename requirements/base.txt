@@ -1,0 +1,10 @@
+Django==4.2.4
+djangorestframework==3.14.0
+django-cors-headers==4.2.0
+celery==5.3.3
+django-celery-beat==2.5.0
+flower==2.0.1
+redis==5.0.0
+requests==2.31.0
+psycopg2-binary==2.9.7
+environs[django]==9.5.0

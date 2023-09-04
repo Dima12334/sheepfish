@@ -1,0 +1,78 @@
+[
+    {
+        "model": "checks.check",
+        "pk": 1,
+        "fields": {
+            "printer": 1,
+            "type": "client",
+            "order": [
+                {
+                    "dishes": [
+                        {"sum": 300, "dish": "macduk", "count": 1},
+                        {"sum": 459, "dish": "macmenu", "count": 2}
+                    ],
+                    "number": 1
+                }
+            ],
+            "status": "rendered",
+            "pdf_file": "pdf/1_kitchen.pdf"
+        }
+    },
+    {
+        "model": "checks.check",
+        "pk": 2,
+        "fields": {
+            "printer": 2,
+            "type": "kitchen",
+            "order": [
+                {
+                    "dishes": [
+                        {"sum": 300, "dish": "macduk", "count": 1},
+                        {"sum": 459, "dish": "macmenu", "count": 2}
+                    ],
+                    "number": 2
+                }
+            ],
+            "status": "rendered",
+            "pdf_file": "pdf/2_kitchen.pdf"
+        }
+    },
+    {
+        "model": "checks.check",
+        "pk": 3,
+        "fields": {
+            "printer": 4,
+            "type": "kitchen",
+            "order": [
+                {
+                    "dishes": [
+                        {"sum": 300, "dish": "macduk", "count": 1},
+                        {"sum": 459, "dish": "macmenu", "count": 2}
+                    ],
+                    "number": 3
+                }
+            ],
+            "status": "rendered",
+            "pdf_file": "pdf/3_kitchen.pdf"
+        }
+    },
+    {
+        "model": "checks.check",
+        "pk": 4,
+        "fields": {
+            "printer": 3,
+            "type": "client",
+            "order": [
+                {
+                    "dishes": [
+                        {"sum": 300, "dish": "macduk", "count": 1},
+                        {"sum": 459, "dish": "macmenu", "count": 2}
+                    ],
+                    "number": 4
+                }
+            ],
+            "status": "rendered",
+            "pdf_file": "pdf/4_client.pdf"
+        }
+    }
+]
