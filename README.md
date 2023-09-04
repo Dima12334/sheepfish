@@ -1,6 +1,6 @@
 # SheepFish challenge
 
-## Instalation
+## Installation
 1. Clone repository:
 ```
 git clone https://github.com/Dima12334/sheepfish.git
