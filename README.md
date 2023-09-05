@@ -27,15 +27,16 @@ python manage.py migrate
 ```
 python manage.py createsuperuser
 ```
-8. Go to admin panel and create the first record at "Intervals" table, and then create record in the "Periodic Tasks" for the apps.printers.tasks.print_rendered_checks task.
-9. Run celery worker, beat and flower:
+8. Run celery worker, celery beat and flower:
 ```
 celery --app config.celery.app worker -l info
 celery --app config.celery.app beat -l info --scheduler django_celery_beat.schedulers:DatabaseScheduler
 celery --broker=redis://localhost:6379/0 flower
 ```
-10. Run server:
+9. Run server:
 ```
 python manage.py runserver
 ```
+10. Go to the admin panel and create the first record at `Intervals` table, and then create record in the `Periodic Tasks` for the `apps.printers.tasks.print_rendered_checks` task (set this task as a `Task (custom)`) with `Schedule -> Interval Schedule` what you created.
+On the `Periodic Tasks` page you can also specify the printers on which you want to print the check (By default, all existing printers will be specified). To do this, you need to add `{"printer_pks": [1, 2]}` to `Arguments` -> `Keyword Arguments`, where [1, 2] is an example of a list of `Printer` model IDs.
 11. Done. Use the App.

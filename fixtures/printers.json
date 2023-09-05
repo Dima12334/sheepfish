@@ -13,10 +13,10 @@
         "model": "printers.printer",
         "pk": 2,
         "fields": {
-            "name": "Canon ImageClass MF743Cdw",
-            "api_key": "C8dE9fG0hI1jK2lM3nO4pQ5rS6tU7vW8xY9",
+            "name": "Canon Pixma TR150",
+            "api_key": "H1iJ2kL3mN4oP5qR6sT7uV8wX9yZ0aB1cD2",
             "check_type": "kitchen",
-            "point_id": 2
+            "point_id": 1
         }
     },
     {
@@ -33,10 +33,10 @@
         "model": "printers.printer",
         "pk": 4,
         "fields": {
-            "name": "Canon Pixma TR150",
-            "api_key": "H1iJ2kL3mN4oP5qR6sT7uV8wX9yZ0aB1cD2",
+            "name": "Canon ImageClass MF743Cdw",
+            "api_key": "C8dE9fG0hI1jK2lM3nO4pQ5rS6tU7vW8xY9",
             "check_type": "kitchen",
-            "point_id": 1
+            "point_id": 2
         }
     }
 ]
